@@ -20,10 +20,16 @@ function printbits(io::IO, x::Float32)
 end
 
 function printbits(io::IO, x::Float64)
-   bts = bitstring(x)
+    bts = bitstring(x)
     printred(io, bts[1:1])
     printgreen(io, bts[2:2+11-1])
     printblue(io, bts[2+11:end])
+end
+
+function printbits(io::IO, x::Integer)
+    bts = bitstring(x)
+    printred(io, bts[1:1])
+    printblue(io, bts[2:end])
 end
 
 printbits(x) = printbits(stdout, x)
