@@ -1,5 +1,5 @@
 module ColorBitstring
-export printbits
+export printbits, printlnbits
 
 printred(io::IO, x) = print(io, "\x1b[31m" * x * "\x1b[0m")
 printgreen(io::IO, x) = print(io, "\x1b[32m" * x * "\x1b[0m")
@@ -33,4 +33,8 @@ function printbits(io::IO, x::Integer)
 end
 
 printbits(x) = printbits(stdout, x)
+function printlnbits(x)
+    printbits(x)
+    println()
+end
 end
