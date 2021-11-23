@@ -8,8 +8,8 @@ printblue(io::IO, x) = print(io, "\x1b[34m" * x * "\x1b[0m")
 function printbits(io::IO, x::Float16)
        bts = bitstring(x)
        printred(io, bts[1:1])
-       printgreen(io, bts[2:7])
-       printblue(io, bts[8:end])
+       printgreen(io, bts[2:6])
+       printblue(io, bts[7:end])
 end
 
 function printbits(io::IO, x::Float32)
@@ -26,11 +26,13 @@ function printbits(io::IO, x::Float64)
     printblue(io, bts[2+11:end])
 end
 
-function printbits(io::IO, x::Integer)
+function printbits(io::IO, x::Signed)
     bts = bitstring(x)
     printred(io, bts[1:1])
     printblue(io, bts[2:end])
 end
+
+printbits(io::IO, x::Unsigned) = printblue(io, bitstring(x))
 
 printbits(x) = printbits(stdout, x)
 function printlnbits(x)
