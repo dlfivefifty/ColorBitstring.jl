@@ -1,7 +1,7 @@
 name = "ColorBitstring"
 uuid = "ce91de38-7578-4b98-aebb-6a5df05791d6"
 authors = ["Sheehan Olver <solver@mac.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [compat]
 julia = "1"
